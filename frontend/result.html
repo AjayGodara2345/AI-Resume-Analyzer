@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Analysis Result</h2>
+<pre id="output"></pre>
+
+<script>
+const data = JSON.parse(localStorage.getItem("result"));
+document.getElementById("output").innerText =
+JSON.stringify(data, null, 2);
+</script>
+</body>
+</html>
