@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Paste Resume Text</h2>
+
+<textarea id="resume" rows="10" cols="50"></textarea><br>
+<button onclick="analyze()">Analyze</button>
+
+<script>
+function analyze(){
+  fetch("http://localhost:5000/analyze",{
+    method:"POST",
+    headers:{ "Content-Type":"application/json" },
+    body:JSON.stringify({
+      resume: document.getElementById("resume").value
+    })
+  })
+  .then(res=>res.json())
+  .then(data=>{
+    localStorage.setItem("result", JSON.stringify(data));
+    window.location.href = "result.html";
+  })
+}
+</script>
+</body>
+</html>
